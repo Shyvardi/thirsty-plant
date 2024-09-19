@@ -6,20 +6,20 @@ DFRobotDFPlayerMini dfPlayer;
 
 const int busyPin = D1; // BUSY pin from DFPlayer Mini
 const int moisturePin = A0; // Analog pin connected to the capacitive sensor
-const int ledPin = LED_BUILTIN; // Internal LED pin
+
 
 const int dryValue = 780; // Value for completely dry
 const int wetValue = 350; // Value for wet
 
 const float moistureThreshold = 70.0; // Moisture percentage threshold for playing a file
-const uint64_t sleepTime = 60000000; // Deep sleep time (10 minutes in microseconds)
+const uint64_t sleepTime = 60000000; // Deep sleep time (5 minutes in microseconds)
 
 void setup() {
  
   mySerial.begin(9600);
 
   pinMode(busyPin, INPUT); // Set BUSY pin as input
-  pinMode(ledPin, OUTPUT); // Set LED pin as output
+
 
   if (!dfPlayer.begin(mySerial)) {
     Serial.println("DFPlayer Mini not detected.");
